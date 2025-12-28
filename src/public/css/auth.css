@@ -1,0 +1,130 @@
+/* ====== Base ====== */
+:root {
+    --bg: #f3eee7;
+    --line: #e6dfd7;
+    --text: #6b5b4d;
+    --muted: #9b8a79;
+    --card: #ffffff;
+    --btn: #7a6a5a;
+    --btn-hover: #6d5f51;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Georgia", "Times New Roman", serif;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* ====== Header ====== */
+.auth-header {
+    height: 70px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.auth-header__title {
+    font-size: 34px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+.auth-header__right {
+    position: absolute;
+    right: 24px;
+}
+
+.auth-header__link {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    background: #f6f1ea;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ====== Main ====== */
+.auth-main {
+    padding: 48px 20px 60px;
+}
+
+.auth-page-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0 0 28px;
+    color: var(--text);
+}
+
+/* ====== Card ====== */
+.auth-card {
+    width: 640px;
+    max-width: calc(100vw - 40px);
+    margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 46px 70px 54px;
+}
+
+.auth-group {
+    margin: 0 0 26px;
+}
+
+.auth-label {
+    display: block;
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: var(--text);
+}
+
+.auth-input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid var(--line);
+    background: #f6f1ea;
+    padding: 0 14px;
+    font-size: 15px;
+    color: var(--text);
+    outline: none;
+}
+
+.auth-input::placeholder {
+    color: #c1b3a5;
+}
+
+.auth-error {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #b14b4b;
+}
+
+/* ====== Button ====== */
+.auth-actions {
+    text-align: center;
+    margin-top: 22px;
+}
+
+.auth-btn {
+    width: 170px;
+    height: 44px;
+    border: none;
+    background: var(--btn);
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    background: var(--btn-hover);
+}

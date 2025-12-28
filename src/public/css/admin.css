@@ -1,0 +1,192 @@
+.admin-pagination {
+    display: flex;
+    justify-content: flex-end;
+    /* 仕様が右寄せなら */
+    margin-top: 8px;
+}
+
+.admin-pagination__list {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: nowrap;
+    /* 1行固定 */
+}
+
+.admin-pagination__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 6px;
+    border: 1px solid #cfc6bf;
+    text-decoration: none;
+    font-size: 12px;
+    /* 矢印が大きすぎる問題対策 */
+    line-height: 1;
+}
+
+.admin-pagination__item.is-active .admin-pagination__link {
+    background: #7b6a5f;
+    /* 仕様の茶系に寄せるなら */
+    color: #fff;
+    border-color: #7b6a5f;
+}
+
+.admin-pagination__item.is-disabled .admin-pagination__link {
+    opacity: .4;
+    pointer-events: none;
+}
+/* 管理画面 ページネーション（強制横並び） */
+.admin-pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-pagination ul.admin-pagination__list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-pagination li.admin-pagination__item {
+    display: inline-flex !important;
+}
+
+.admin-pagination__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 6px;
+    font-size: 12px;
+    line-height: 1;
+    text-decoration: none;
+    border: 1px solid #cfc6bf;
+    background: #fff;
+}
+
+.admin-pagination__item.is-active .admin-pagination__link {
+    background: #7b6a5f;
+    color: #fff;
+    border-color: #7b6a5f;
+}
+
+.admin-pagination__item.is-disabled .admin-pagination__link {
+    opacity: 0.4;
+    pointer-events: none;
+}
+/* ===== モーダル ===== */
+.admin-modal {
+    display: none;
+}
+
+.admin-modal.is-open {
+    display: block;
+}
+
+.admin-modal__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .15);
+    z-index: 999;
+}
+
+.admin-modal__content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(820px, 92vw);
+    max-height: 86vh;
+    overflow: auto;
+    background: #fff;
+    border: 1px solid #d8d1cb;
+    z-index: 1000;
+    padding: 36px 48px 28px;
+}
+
+.admin-modal__close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #d8d1cb;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    line-height: 28px;
+    text-align: center;
+}
+
+.admin-modal__title {
+    text-align: center;
+    margin: 0 0 28px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.admin-modal__row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.admin-modal__label {
+    color: #7b6a5f;
+    font-weight: 700;
+}
+
+.admin-modal__value {
+    color: #333;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.admin-modal__row--detail .admin-modal__value--detail {
+    line-height: 1.6;
+}
+
+.admin-modal__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+}
+
+.admin-modal__delete {
+    background: #c54b3c;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    cursor: pointer;
+}
+
+body.is-modal-open {
+    overflow: hidden;
+}
+/* 管理画面テーブル：行ホバー */
+.admin-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f5f0ea;
+    /* お好みで薄い色に調整 */
+}
+
+/* もしセル単位でも強調したければ（任意） */
+.admin-table tbody td:hover {
+    /* border-bottom: 1px solid #cfc6bf; など追加もOK */
+    cursor: pointer;
+}
