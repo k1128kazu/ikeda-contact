@@ -6,14 +6,11 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
+        // ▼ 外部キー整合性のため順序を保証
         $this->call([
+            CategorySeeder::class,
             ContactSeeder::class,
         ]);
     }

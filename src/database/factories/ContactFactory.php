@@ -2,41 +2,34 @@
 
 namespace Database\Factories;
 
-use App\Models\Contact;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 
 class ContactFactory extends Factory
 {
-    protected $model = Contact::class;
-
     public function definition()
     {
-        // categories.id は 16〜20 に固定
-        $categoryId = $this->faker->randomElement([16, 17, 18, 19, 20]);
-
-        // created_at：過去30日以内に分散
-        $createdAt = $this->faker->dateTimeBetween('-30 days', 'now');
-
         return [
-            'last_name'   => $this->faker->lastName(),
-            'first_name'  => $this->faker->firstName(),
-            'gender'      => $this->faker->randomElement([1, 2, 3]),
-            'email'       => $this->faker->unique()->safeEmail(),
 
-            // tel：ハイフンなし
-            'tel'         => '090' . $this->faker->numerify('########'),
+            'last_name'  => $this->faker->lastName,
+            'first_name' => $this->faker->firstName,
 
-            'address'     => $this->faker->address(),
-            'building'    => $this->faker->optional()->secondaryAddress(),
+            'gender'     => $this->faker->randomElement([1, 2, 3]),
 
-            'category_id' => $categoryId,
+            'email'      => $this->faker->unique()->safeEmail,
 
-            // 仕様：120文字以内
-            'detail'      => $this->faker->realText(120),
+            'tel'        => $this->faker->numerify('090########'),
 
-            // 分散日付を反映
-            'created_at'  => $createdAt,
-            'updated_at'  => $createdAt,
+            'address'    => $this->faker->address,
+            'building'   => $this->faker->optional()->secondaryAddress,
+
+            // ▼ 実在する categories.id を取得
+            'category_id' => Category::inRandomOrder()->value('id'),
+
+            'detail'     => $this->faker->realText(80),
+
+            // ▼ created_at を「過去30日以内」に散らす
+            'created_at' => $this->faker->dateTimeBetween('-30 days', 'now'),
         ];
     }
 }
